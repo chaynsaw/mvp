@@ -13,7 +13,7 @@ db.once('open', function() {
 
 var itemSchema = mongoose.Schema({
   name: String,
-  purpose: String,
+  // purpose: String,
   description: String,
   importance: Number,
 });

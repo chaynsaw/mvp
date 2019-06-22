@@ -26,40 +26,37 @@ class CreateTask extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} action ="/" method="POST">
-        <label name="title" >
-          What do you need to remediate on? 
-          <br />
-          <input type="text" name="name" id="name" value={this.state.value} onChange={this.handleChange} placeholder="Enter task name" required/>
-        </label>
-          <br />
-        <label name="purpose">
-          What is this for?
-          <br />
-          <input type="text" name="purpose" value={this.state.value} onChange={this.handleChange} placeholder="Enter what this task is for (optional)" size="35"/>
-        </label>
-          <br />
-        <label name="description" >
-          Description:
-          <br />
-          <textarea name="description" style={{'width':'250px','height':'150px',}} value={this.state.value} onChange={this.handleChange} placeholder="Enter what this task is for (optional)"></textarea>
-        </label>
-          <br />
-        <label for="importance">Rate the importance of this remediation:</label>
-          <br />
-          <select id="importance" name="importance" value={this.state.value} onChange={this.handleChange} required>
-              <option value="">--Please choose an option--</option>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-          </select>
-          <br />
+      <div>
+        <h2>Create a Task</h2>
+        <form onSubmit={this.handleSubmit} action ="/" method="POST">
+          <label name="title" >
+            What do you need to work on? 
+            <br />
+            <input type="text" name="name" id="name" value={this.state.value} onChange={this.handleChange} placeholder="Enter task name" size="40" required/>
+          </label>
+            <br />
+          <label name="description" >
+            Description:
+            <br />
+            <textarea name="description" style={{'width':'250px','height':'150px',}} value={this.state.value} onChange={this.handleChange} placeholder="Enter what this task is for (optional)"></textarea>
+          </label>
+            <br />
+          <label for="importance">Rate the importance of this remediation:</label>
+            <br />
+            <select id="importance" name="importance" value={this.state.value} onChange={this.handleChange} required>
+                <option value="">--Please choose an option--</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br />
 
-          <input type="submit" value="Submit" />
-      </form>
+            <input type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 }
