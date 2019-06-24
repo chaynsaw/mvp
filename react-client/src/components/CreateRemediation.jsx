@@ -25,7 +25,7 @@ class CreateRemediation extends React.Component {
       data: this.state,
       success: () => {
         alert('Success!')
-        location.reload()
+        location.reload();
       }
     })
   }
@@ -61,7 +61,7 @@ class CreateRemediation extends React.Component {
                   <option value="2">2 - Nice to Have</option>
                   <option value="3">3 - Somewhat Important</option>
                   <option value="4">4 - Very Important</option>
-                  <option value="5">5 - Extremely Important</option>
+                  <option value="5">5 - The Most Important</option>
               </select>
               <br />
   
