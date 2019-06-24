@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
-class CreateTask extends React.Component {
+
+class CreateRemediation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {clicked:false};
@@ -20,11 +21,15 @@ class CreateTask extends React.Component {
     event.preventDefault();
     $.ajax({
       method: "POST",
-      url: "/tasks/create",
+      url: "/remediations/create",
       data: this.state,
+      success: () => {
+        alert('Success!')
+        location.reload()
+      }
     })
   }
-
+  
   clicked() {
     this.setState({clicked:!this.state.clicked})
   }
@@ -33,30 +38,30 @@ class CreateTask extends React.Component {
     if (this.state.clicked) {
       return (
         <div>
-          <h2 onClick={this.clicked}>Create a Task</h2>
+          <h1 onClick={this.clicked}>Create a Remediation</h1>
           <form onSubmit={this.handleSubmit} action ="/" method="POST">
             <label name="title" >
               What do you need to work on? 
               <br />
-              <input type="text" name="name" id="name" value={this.state.value} onChange={this.handleChange} placeholder="Enter task name" size="40" required/>
+              <input type="text" name="name" id="name" value={this.state.value} onChange={this.handleChange} placeholder="Enter remediation name" size="40" required/>
             </label>
               <br />
             <label name="description" >
               Description:
               <br />
-              <textarea name="description" style={{'width':'250px','height':'150px',}} value={this.state.value} onChange={this.handleChange} placeholder="Enter what this task is for (optional)"></textarea>
+              <textarea name="description" style={{'width':'250px','height':'150px',}} value={this.state.value} onChange={this.handleChange} placeholder="Enter what this remediation is for (optional)"></textarea>
             </label>
               <br />
             <label htmlFor="importance">Rate the importance of this remediation:</label>
               <br />
               <select id="importance" name="importance" value={this.state.value} onChange={this.handleChange} required>
                   <option value="">--Please choose an option--</option>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
+                  <option value="0">0 - Not Important At All</option>
+                  <option value="1">1 - Minimally Important</option>
+                  <option value="2">2 - Nice to Have</option>
+                  <option value="3">3 - Somewhat Important</option>
+                  <option value="4">4 - Very Important</option>
+                  <option value="5">5 - Extremely Important</option>
               </select>
               <br />
   
@@ -67,7 +72,7 @@ class CreateTask extends React.Component {
     } else {
       return (
         <div>
-          <h2 onClick={this.clicked}>Create a Task</h2>
+          <h1 onClick={this.clicked}>Create a Remediation</h1>
         </div>
       )
     }
@@ -75,4 +80,4 @@ class CreateTask extends React.Component {
   }
 }
 
-export default CreateTask;
+export default CreateRemediation;

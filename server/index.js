@@ -17,7 +17,7 @@ app.get('/items', function (req, res) {
 });
 
 
-app.post('/tasks/create', (req, res) => {
+app.post('/remediations/create', (req, res) => {
   console.log(req.body)
   db.insertRecord(req.body, (err, data) => {
     if (err) {
